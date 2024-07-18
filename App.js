@@ -6,7 +6,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <QueryClientProvider client={new QueryClient()}>
-      <View
+      <View 
         style={{
           flex: 1,
         }}
