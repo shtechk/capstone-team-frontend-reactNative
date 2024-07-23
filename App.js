@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
+import MainNavigation from "./src/navigations/MainNavigation";
 
 export default function App() {
   const [location, setLocation] = useState(null);
@@ -39,7 +40,7 @@ export default function App() {
         }}
       >
         <NavigationContainer>
-          <Text>Open up App.js to start working on your app!</Text>
+          <MainNavigation />
         </NavigationContainer>
       </View>
     </QueryClientProvider>
