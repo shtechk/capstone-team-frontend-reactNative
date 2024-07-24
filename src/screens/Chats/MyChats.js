@@ -4,7 +4,14 @@ import React from "react";
 const MyChats = () => {
   return (
     <View>
-      <Text>MyChats</Text>
+      {/* frame input begins here */}
+      // header
+      <View></View>
+      // chats list
+      <View>
+        <Text>My Chats</Text>
+      </View>
+      {/* frame input ends here */}
     </View>
   );
 };

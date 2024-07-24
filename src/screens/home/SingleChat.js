@@ -1,23 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const CreateBooking = () => {
+const SingleChat = () => {
   return (
     <View>
       {/* frame inputs begin here */}
       // header
       <View></View>
-      // Place card details
-      <View>
-        <Text>CreateBooking</Text>
-      </View>
-      // booking field inputs
+      // Place chat bubbles here
+      <View></View>
+      // typed message input heree
       <View></View>
       {/* frame inputs end here */}
     </View>
   );
 };
 
-export default CreateBooking;
+export default SingleChat;
 
 const styles = StyleSheet.create({});
