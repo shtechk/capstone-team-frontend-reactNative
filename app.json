@@ -1,5 +1,13 @@
 {
   "expo": {
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ],
     "name": "capstone-team-frontend-reactNative",
     "slug": "capstone-team-frontend-reactNative",
     "version": "1.0.0",
