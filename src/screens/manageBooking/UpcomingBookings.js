@@ -5,13 +5,13 @@ const UpcomingBookings = () => {
   return (
     <View>
       {/* frame inputs begin here */}
-      // Header
+      {/* // Header */}
       <View> </View>
-      // screen title
+      {/* // screen title */}
       <View>
         <Text>Upcoming Bookings</Text>
       </View>
-      // List of Bookings
+      {/* // List of Bookings */}
       <View> </View>
       {/* frame inputs end here*/}
     </View>

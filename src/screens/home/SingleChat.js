@@ -5,11 +5,11 @@ const SingleChat = () => {
   return (
     <View>
       {/* frame inputs begin here */}
-      // header
+      {/* // header */}
       <View></View>
-      // Place chat bubbles here
+      {/* // Place chat bubbles here */}
       <View></View>
-      // typed message input heree
+      {/* // typed message input heree */}
       <View></View>
       {/* frame inputs end here */}
     </View>

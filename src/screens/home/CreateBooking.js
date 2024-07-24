@@ -5,15 +5,15 @@ const CreateBooking = () => {
   return (
     <View>
       {/* frame inputs begin here */}
-      // header
+      {/* // header */}
       <View></View>
-      // Place card details
+      {/* // Place card details */}
       <View>
         <Text>Create Booking</Text>
       </View>
-      // booking field inputs
+      {/* // booking field inputs */}
       <View></View>
-      // "book" button here
+      {/* // "book" button here */}
       <View></View>
       {/* frame inputs end here */}
     </View>

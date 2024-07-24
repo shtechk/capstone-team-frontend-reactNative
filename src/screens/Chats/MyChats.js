@@ -5,9 +5,9 @@ const MyChats = () => {
   return (
     <View>
       {/* frame input begins here */}
-      // header
+      {/* // header */}
       <View></View>
-      // chats list
+      {/* // chats list */}
       <View>
         <Text>My Chats</Text>
       </View>

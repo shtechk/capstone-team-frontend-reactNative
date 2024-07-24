@@ -5,15 +5,15 @@ const ManageBooking = () => {
   return (
     <View>
       {/* frame inputs begin here */}
-      // header
+      {/* // header */}
       <View></View>
-      // Place card details
+      {/* // Place card details */}
       <View>
         <Text>Manage Booking</Text>
       </View>
-      // booking field inputs
+      {/* // booking field inputs */}
       <View></View>
-      // "edit" and "cancel" buttons here
+      {/* // "edit" and "cancel" buttons here */}
       <View></View>
       {/* frame inputs end here */}
     </View>
