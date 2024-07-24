@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import Header from "../../components/Header";
+import { TouchableOpacity } from "react-native";
 
-const BusinessDetails = () => {
+const BusinessDetails = ({ navigation }) => {
   return (
     <View>
-      <Text>BusinessDetails</Text>
+      <Header navigation={navigation} />
     </View>
   );
 };

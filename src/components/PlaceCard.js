@@ -7,11 +7,13 @@ import { withDecay } from "react-native-reanimated";
 
 import { Ionicons } from "@expo/vector-icons";
 
-const PlaceCard = ({ images, name, mood, food, service, _id, ratings }) => {
+const PlaceCard = ({ link, name, mood, food, service, _id, ratings }) => {
   const navigation = useNavigation();
   const handlePress = () => {
     navigation.navigate("businessDetails", { _id }); //_id help me to know which item i will navigate to."shahed????"
   };
+
+  console.log(BASE_URL + "/" + link);
   return (
     <View
       style={{
@@ -37,14 +39,14 @@ const PlaceCard = ({ images, name, mood, food, service, _id, ratings }) => {
         <View // this view for the image
           style={{
             flex: 2,
-            backgroundColor: "yellow",
+            //backgroundColor: "yellow",
             borderRadius: 22,
             overflow: "hidden",
             //flexWrap: "wrap",
           }}
         >
           <Image
-            source={{ uri: images }}
+            source={{ uri: BASE_URL + "/" + link }}
             style={{
               width: "100%",
               height: "100%",
