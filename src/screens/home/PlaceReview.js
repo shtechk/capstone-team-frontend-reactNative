@@ -3,12 +3,14 @@ import React from "react";
 import Header from "../../components/Header";
 import { TouchableOpacity } from "react-native";
 
-const BusinessDetails = ({ navigation }) => {
+const PlaceReview = () => {
   return (
     <View>
-      <Header navigation={navigation} />
+      <Text>PlaceReview</Text>
     </View>
   );
 };
 
-export default BusinessDetails;
+export default PlaceReview;
+
+const styles = StyleSheet.create({});

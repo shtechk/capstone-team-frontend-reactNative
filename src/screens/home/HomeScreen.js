@@ -83,7 +83,6 @@ const HomeScreen = ({ navigation }) => {
             <Text
               style={{
                 fontSize: 20,
-                fontFamily: "Cochin",
                 fontWeight: "bold",
                 color: "#023047", // Dark blue text for the title
               }}

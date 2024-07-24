@@ -10,7 +10,7 @@ import { Ionicons } from "@expo/vector-icons";
 const PlaceCard = ({ link, name, mood, food, service, _id, ratings }) => {
   const navigation = useNavigation();
   const handlePress = () => {
-    navigation.navigate("businessDetails", { _id }); //_id help me to know which item i will navigate to."shahed????"
+    navigation.navigate("createBooking", { _id });
   };
 
   console.log(BASE_URL + "/" + link);
@@ -72,7 +72,7 @@ const PlaceCard = ({ link, name, mood, food, service, _id, ratings }) => {
             //backgroundColor: "pink",
           }}
         >
-          <Text style={{ fontSize: 20, fontFamily: "Cochin" }}>{name}</Text>
+          <Text style={{ fontSize: 20 }}>{name}</Text>
           {/*Avenir Next,Helvetica Neue Try any of these font familyFont */}
           <Text>{mood}</Text>
           <Text>{food}</Text>
