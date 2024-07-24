@@ -13,15 +13,15 @@ const PlaceDetails = () => {
       }}
     >
       {/* frame begins here */}
-      //image of place
+      {/* image of place*/}
       <View> </View>
-      //name of place
+      {/* //name of place */}
       <View>
         <Text>Pick</Text>
       </View>
-      // written details of place
+      {/* // written details of place */}
       <View></View>
-      //3 icons
+      {/* //3 icons */}
       <View></View>
       {/* frame ends here */}
     </View>
