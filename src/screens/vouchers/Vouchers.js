@@ -3,8 +3,13 @@ import React from "react";
 import VoucherItem from "../../components/VoucherItem";
 import { useQuery } from "@tanstack/react-query";
 import { getAllVouchers } from "../../apis/vouchers";
+import { useNavigation } from "@react-navigation/native";
 
 const Vouchers = () => {
+  const navigation = useNavigation();
+  const handleNavigation = () => {
+    navigation.navigate("addNewVoucher");
+  };
   const { data: AllVouchers } = useQuery({
     queryKey: ["getAllVouchers"],
     queryFn: () => getAllVouchers(),
@@ -73,7 +78,10 @@ const Vouchers = () => {
           }}
         >
           {/* how to change the color of the title??  */}
-          <Button title="Create New Vouchers"></Button>
+          <Button
+            title="Create New Vouchers"
+            onPress={handleNavigation}
+          ></Button>
         </View>
       </View>
     </View>
