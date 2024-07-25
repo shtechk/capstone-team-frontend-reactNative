@@ -1,15 +1,16 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { BASE_URL } from "../apis";
 
-const CategoryCard = ({ name, index, image }) => {
+const CategoryCard = ({ link, index, name }) => {
   return (
     <View
       style={{
         flex: 1,
-        minWidth: 100,
-        minHeight: 100,
-        backgroundColor: "#8ecae6",
+        minWidth: 140,
+        minHeight: 140,
+        // backgroundColor: "#8ecae6",
         paddingHorizontal: 5,
         paddingVertical: 10,
         borderRadius: 100,
@@ -19,15 +20,15 @@ const CategoryCard = ({ name, index, image }) => {
       }}
     >
       <Image
-        source={{ uri: image }}
+        source={{ uri: BASE_URL + "/" + link }}
         style={{
           width: "100%",
-          height: "100%",
+          aspectRatio: 1,
           borderWidth: 1,
           borderRadius: 100,
           borderColor: "lightgray",
           //backgroundColor: "yellow",
-          flex: 3,
+          flex: 5,
         }}
         onError={(e) => console.log(e.nativeEvent.error)}
       />

@@ -10,7 +10,7 @@ const CategoryList = () => {
     queryKey: ["categories"],
     queryFn: () => getAllCategories(),
   });
-
+  console.log(data);
   //
   const dataList = data?.map((category, index) => {
     return (
@@ -18,7 +18,7 @@ const CategoryList = () => {
         name={category.name}
         index={index}
         key={index}
-        image={category.image}
+        link={category.image}
       />
     );
   });
@@ -28,12 +28,12 @@ const CategoryList = () => {
       horizontal //by defult its vertical so i choose "Horizantal"
       pagingEnabled // to make categories list scroll throw pages
       contentContainerStyle={{
-        height: 120,
+        height: 140,
         flexDirection: "row",
-        gap: 15,
+        gap: 20,
         alignItems: "center",
         paddingHorizontal: 5,
-        //backgroundColor: "red",
+        //backgroundColor: "blue",
       }}
     >
       {dataList}
@@ -42,5 +42,3 @@ const CategoryList = () => {
 };
 
 export default CategoryList;
-
-const styles = StyleSheet.create({});

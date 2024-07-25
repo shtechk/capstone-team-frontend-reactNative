@@ -1,4 +1,4 @@
-import { FlatList, Text, TextInput, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 //import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
@@ -156,8 +156,8 @@ const HomeScreen = ({ navigation }) => {
       {/* category list */}
       <View
         style={{
-          height: 110,
-          //backgroundColor: "red",
+          height: 130,
+          //backgroundColor: "green",
           width: 400,
           alignItems: "center",
         }}
@@ -168,7 +168,7 @@ const HomeScreen = ({ navigation }) => {
         style={{
           width: "100%",
           height: "100%",
-          //backgroundColor: "red"
+          //backgroundColor: "red",
         }}
       >
         {!isLoading && <PlacesList places={places} isSuccess={isSuccess} />}

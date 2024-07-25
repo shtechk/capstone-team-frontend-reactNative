@@ -1,19 +1,15 @@
+// src/screens/manageBooking/UpcomingBookings.js
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 const UpcomingBookings = () => {
   return (
     <View>
-      {/* frame inputs begin here */}
-      // Header
-      <View> </View>
-      // screen title
+      <View></View>
       <View>
         <Text>Upcoming Bookings</Text>
       </View>
-      // List of Bookings
-      <View> </View>
-      {/* frame inputs end here*/}
+      <View></View>
     </View>
   );
 };
