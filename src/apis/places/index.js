@@ -1,17 +1,17 @@
-import instance from "..";
+import instance from "../../api";
 
 const getAllPlaces = async () => {
-  const { data } = await instance.get("/apis/place");
+  const { data } = await instance.get("/place");
   return data;
 };
 const getPlaceById = async (id) => {
-  const { data } = await instance.get(`/apis/place${id}`);
+  const { data } = await instance.get(`/place${id}`);
   return data;
 };
 const searchPlaces = async (searchTerm) => {
   try {
     const { data } = await instance.get(
-      `/apis/place/search?search=${searchTerm}`
+      `/place/search?search=${searchTerm}`
     ); //`/apis/place${searchTerm}` or `/apis/place?search=${searchTerm}`?? ask aziz
     return data;
   } catch (error) {

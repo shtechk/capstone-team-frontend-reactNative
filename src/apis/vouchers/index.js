@@ -1,4 +1,4 @@
-import instance from "..";
+import instance from "../../api";
 
 const getAllVouchers = async () => {
   const { data } = instance.get("/vouchers/allVouchers");
