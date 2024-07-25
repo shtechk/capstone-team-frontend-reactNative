@@ -9,6 +9,7 @@ import { getAllPlaces } from "../apis/places";
 const PlacesList = ({ places, isSuccess }) => {
   const [sortedPlaces, setSortedPlaces] = useState([]);
   console.log(places);
+  console.log(places);
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -57,7 +58,7 @@ const PlacesList = ({ places, isSuccess }) => {
             console.log(place), // Debug: Log the current place object
             (
               <PlaceCard
-                images={place.images}
+                link={place.images}
                 key={place._id}
                 name={place.name}
                 mood={place.mood}
