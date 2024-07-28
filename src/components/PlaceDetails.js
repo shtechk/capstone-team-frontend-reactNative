@@ -1,27 +1,21 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { getPlaceById } from "../apis/places";
+import { BASE_URL } from "../apis";
 
 const PlaceDetails = ({ _id }) => {
-  const [place, setPlace] = useState(null);
-
-  useEffect(() => {
-    const fetchPlace = async () => {
-      try {
-        const response = await axios.get(
-          `http://192.168.8.95:8000/api/place/${_id}`
-        );
-        setPlace(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchPlace();
-  }, [_id]);
-
+  const navigation = useNavigation();
+  const { data: place } = useQuery({
+    queryKey: ["placeDetail", _id],
+    queryFn: () => {
+      return getPlaceById(_id);
+    },
+  });
+  // console.log(place);
   if (!place) {
     return <Text>Loading...</Text>;
   }
@@ -41,13 +35,10 @@ const PlaceDetails = ({ _id }) => {
       {/* image of place*/}
 
       <View>
-        {place.images.map((image, index) => (
-          <Image
-            key={index}
-            source={{ uri: image }}
-            style={{ width: 100, height: 100 }}
-          />
-        ))}
+        <Image
+          source={{ uri: BASE_URL + "/" + place?.images }}
+          style={{ width: 100, height: 100 }}
+        />
       </View>
 
       {/* //name of place */}
@@ -71,9 +62,7 @@ const PlaceDetails = ({ _id }) => {
         >
           <Ionicons name="star" size={32} color="gold" />
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Location", { _id })}
-        >
+        <TouchableOpacity onPress={() => {}}>
           <Ionicons name="location" size={32} color="blue" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Chat", { _id })}>

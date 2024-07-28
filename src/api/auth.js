@@ -6,7 +6,7 @@ import { storeToken } from "./storage";
 const login = async (userInfo) => {
   const { data } = await instance.post("/api/users/login", userInfo);
   if (data.token) {
-    console.log(data.token);
+    // console.log(data.token);
     await storeToken(data.token);
   }
   return data;

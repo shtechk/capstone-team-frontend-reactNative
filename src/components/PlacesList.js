@@ -9,8 +9,8 @@ import { getAllPlaces } from "../apis/places";
 const PlacesList = ({ places, isSuccess }) => {
   const [sortedPlaces, setSortedPlaces] = useState([]);
   const [userLocation, setUserLocation] = useState([]);
-  console.log("HELLLO");
-  console.log(places);
+  // console.log("HELLLO");
+  // console.log(places);
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -47,6 +47,7 @@ const PlacesList = ({ places, isSuccess }) => {
   return (
     <ScrollView
       contentContainerStyle={{
+        alignItems: "center",
         gap: 7,
       }}
     >

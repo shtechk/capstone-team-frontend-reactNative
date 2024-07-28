@@ -2,8 +2,14 @@ import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import PlaceDetails from "../../components/PlaceDetails";
 import BookingCard from "../../components/BookingCard";
+import { useRoute } from "@react-navigation/native";
+import { useQuery } from "@tanstack/react-query";
+import { getPlaceById } from "../../apis/places";
 
 const CreateBooking = () => {
+  const route = useRoute();
+  const { _id } = route.params;
+
   return (
     <View style={{ flex: 90, paddingVertical: 5 }}>
       {/* frame inputs begin here */}
@@ -18,7 +24,7 @@ const CreateBooking = () => {
         }}
       >
         <Text>Create Booking</Text>
-        <PlaceDetails />
+        <PlaceDetails _id={_id} />
       </ScrollView>
       {/* // booking field inputs */}
       <ScrollView>
@@ -26,7 +32,7 @@ const CreateBooking = () => {
       </ScrollView>
       {/* // "book" button here */}
       <View>
-        <Button
+        {/* <Button
           title="Book"
           onPress={() => navigation.navigate("Rating", { _id: place._id })}
           // how can i add to this code, that i want the user to rate the most recent shop they booked at?
@@ -34,7 +40,7 @@ const CreateBooking = () => {
           // and now he is able to hit the "book" button?
           //
           // onPress={() => Alert.alert('You are requesting a booking for ${time}')}
-        />
+        /> */}
       </View>
       {/* frame inputs end here */}
     </View>

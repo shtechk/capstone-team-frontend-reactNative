@@ -1,12 +1,13 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { BASE_URL } from "../api";
+
 import CachedImage from "./CachedImage";
 import { withDecay } from "react-native-reanimated";
 
 import { Ionicons } from "@expo/vector-icons";
 import { getDistance } from "geolib"; // Import the getDistance function from geolib
+import { BASE_URL } from "../apis";
 
 const PlaceCard = ({
   link,
@@ -39,7 +40,7 @@ const PlaceCard = ({
     );
   }, [userLocation]);
 
-  console.log(distance);
+  // console.log(BASE_URL + "/" + link);
   return (
     <View
       style={{

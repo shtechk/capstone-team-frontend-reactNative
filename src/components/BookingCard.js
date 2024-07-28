@@ -15,7 +15,7 @@ const BookingCard = () => {
 
   const handleBooking = () => {
     const booking = { _id, date, time, persons, instructions };
-    navigation.navigate("Payment", { booking });
+    // navigation.navigate("Payment", { booking });
   };
 
   const onChangeDate = (event, selectedDate) => {
@@ -27,21 +27,21 @@ const BookingCard = () => {
   const { booking } = route.params;
 
   const handlePayment = (method) => {
-    booking.paymentMethod = method;
-    navigation.navigate("Confirmation", { booking });
+    // booking?.paymentMethod = method;
+    // navigation.navigate("Confirmation", { booking });
   };
 
   return (
     <View>
       <Button title="Select Date" onPress={() => setShowDatePicker(true)} />
-      {showDatePicker && (
+      {/* {showDatePicker && (
         <DateTimePicker
           value={date}
           mode="date"
           display="default"
           onChange={onChangeDate}
         />
-      )}
+      )} */}
       <TextInput placeholder="Time" value={time} onChangeText={setTime} />
       <TextInput
         placeholder="Persons"
