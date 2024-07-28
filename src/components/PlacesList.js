@@ -8,6 +8,7 @@ import { getAllPlaces } from "../apis/places";
 
 const PlacesList = ({ places, isSuccess }) => {
   const [sortedPlaces, setSortedPlaces] = useState([]);
+  const [userLocation, setUserLocation] = useState([]);
   console.log(places);
   console.log(places);
   useEffect(() => {
@@ -19,7 +20,7 @@ const PlacesList = ({ places, isSuccess }) => {
       }
 
       let userLocation = await Location.getCurrentPositionAsync({});
-
+      setUserLocation(userLocation);
       if (isSuccess && places) {
         const sorted = [...places].sort((a, b) => {
           const distanceA = getDistance(
@@ -65,6 +66,8 @@ const PlacesList = ({ places, isSuccess }) => {
                 //food={place.food}
                 _id={place._id}
                 ratings={place.ratings}
+                userLocation={userLocation}
+                place={place}
               />
             )
           )

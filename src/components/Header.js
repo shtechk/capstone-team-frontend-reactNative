@@ -26,7 +26,7 @@ const Header = ({ navigation, title }) => {
         <View
           style={{
             flex: 70,
-            backgroundColor: "#219ebc", // yellow background for the lower header
+            backgroundColor: "#219ebc", // cyan background for the lower header
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
