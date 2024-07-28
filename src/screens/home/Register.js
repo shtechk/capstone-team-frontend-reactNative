@@ -1,5 +1,5 @@
 // src/screens/Register.js
-import React, { useState } from "react";
+
 import {
   View,
   Text,
@@ -15,6 +15,7 @@ import { useMutation } from "@tanstack/react-query";
 import { register } from "../../api/auth";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({

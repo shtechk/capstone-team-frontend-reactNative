@@ -4,17 +4,18 @@ import VoucherItem from "../../components/VoucherItem";
 import { useQuery } from "@tanstack/react-query";
 import { getAllVouchers } from "../../apis/vouchers";
 import { useNavigation } from "@react-navigation/native";
+import Header from "../../components/Header";
 
-const Vouchers = () => {
-  const navigation = useNavigation();
+const Vouchers = ({ navigation }) => {
+  const navigations = useNavigation();
   const handleNavigation = () => {
-    navigation.navigate("addNewVoucher");
+    navigations.navigate("addNewVoucher");
   };
   const { data: AllVouchers } = useQuery({
-    queryKey: ["getAllVouchers"],
+    queryKey: ["voucherss"],
     queryFn: () => getAllVouchers(),
   });
-
+  console.log(AllVouchers);
   const vouchersList = AllVouchers?.map((voucher) => {
     <VoucherItem
       key={voucher._id}
@@ -32,31 +33,8 @@ const Vouchers = () => {
         width: "100%",
       }}
     >
-      <View
-        style={{ flex: "12", justifyContent: "center", alignItems: "center" }}
-      >
-        <Text>the notifications and drawer</Text>
-      </View>
-      <View
-        style={{
-          flex: "13",
-          backgroundColor: "#219ebc",
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text
-          style={{
-            color: "white",
-            fontSize: "30",
-            fontFamily: "Cochin",
-            fontWeight: "bold",
-          }}
-        >
-          My Vouchers
-        </Text>
-      </View>
+      <Header navigation={navigation} title={"My voucher"} />
+
       <View style={{ flex: "50", backgroundColor: "orange", width: "100%" }}>
         {vouchersList}
       </View>
