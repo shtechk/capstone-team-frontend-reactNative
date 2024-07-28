@@ -4,7 +4,7 @@ import { removeToken } from "../../api/storage";
 
 const LogoutScreen = () => {
   removeToken();
-  console.log("alis");
+  // console.log("alis");
   return null;
 };
 

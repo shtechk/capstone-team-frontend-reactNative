@@ -1,5 +1,5 @@
 // src/screens/Register.js
-import React, { useState } from "react";
+
 import {
   View,
   Text,
@@ -11,11 +11,11 @@ import {
   Platform,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-
+import { useMutation } from "@tanstack/react-query";
 import { register } from "../../api/auth";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
-import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -39,8 +39,7 @@ const Register = () => {
   const navigation = useNavigation();
 
   const { mutate: registerUser } = useMutation({
-    mutationFn: () => register(userInfo),
-    mutationKey: ["register"],
+    mutationFn: (data) => register(data),
     onSuccess: () => {
       navigation.navigate("VerifyEmail", { email: userInfo.email });
     },
@@ -57,10 +56,10 @@ const Register = () => {
     if (Platform.OS !== "web") {
       const { status } =
         await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== "granted") {
-        alert("Sorry, we need camera roll permissions to make this work!");
-        return;
-      }
+      // if (status !== "granted") {
+      //   alert("Sorry, we need camera roll permissions to make this work!");
+      //   return;
+      // }
     }
 
     try {

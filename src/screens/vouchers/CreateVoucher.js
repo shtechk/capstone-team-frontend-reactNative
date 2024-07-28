@@ -35,9 +35,13 @@ const CreateVoucher = () => {
     },
   });
 
+  //i have to use this mutate for when the form is submitted it creates a voucher and
+  //sent it to the reciever
+  //can i put mutate inside the handlePayment??? ASK!!
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>New Voucher</Text>
+      <Text style={styles.title}> Send Voucher To Your Loved Ones </Text>
       <View style={styles.amountContainer}>
         {["5", "10", "15", "20"].map((value) => (
           <TouchableOpacity
@@ -101,12 +105,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFF",
     padding: 20,
+    justifyContent: "center",
   },
   title: {
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
+    color: "skyblue",
+    fontFamily: "avenir",
   },
   amountContainer: {
     flexDirection: "row",
@@ -114,15 +121,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   amountButton: {
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "lightblue",
     padding: 15,
     borderRadius: 10,
   },
   selectedAmountButton: {
-    backgroundColor: "#A5A5A5",
+    backgroundColor: "skyblue",
   },
   amountText: {
     fontSize: 18,
+    fontFamily: "avenir",
   },
   input: {
     borderWidth: 1,
@@ -130,34 +138,40 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 15,
     marginBottom: 20,
+    fontFamily: "avenir",
   },
   paymentMethodContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 20,
+    fontFamily: "avenir",
   },
   paymentMethodButton: {
     flex: 1,
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "lightblue",
     padding: 15,
     borderRadius: 10,
     marginHorizontal: 5,
     alignItems: "center",
+    fontFamily: "avenir",
   },
   selectedPaymentMethodButton: {
-    backgroundColor: "#A5A5A5",
+    backgroundColor: "skyblue",
+    fontFamily: "avenir",
   },
   paymentMethodText: {
     fontSize: 18,
+    fontFamily: "avenir",
   },
   payButton: {
-    backgroundColor: "#000",
+    backgroundColor: "lightblue",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
   },
   payButtonText: {
-    color: "#FFF",
+    color: "black",
     fontSize: 18,
+    fontFamily: "avenir",
   },
 });

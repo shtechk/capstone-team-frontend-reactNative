@@ -1,20 +1,47 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import PlaceDetails from "../../components/PlaceDetails";
+import BookingCard from "../../components/BookingCard";
+import { useRoute } from "@react-navigation/native";
+import { useQuery } from "@tanstack/react-query";
+import { getPlaceById } from "../../apis/places";
 
 const CreateBooking = () => {
+  const route = useRoute();
+  const { _id } = route.params;
+
   return (
-    <View>
+    <View style={{ flex: 90, paddingVertical: 5 }}>
       {/* frame inputs begin here */}
       {/* // header */}
       <View></View>
       {/* // Place card details */}
-      <View>
+      <ScrollView
+        contentContainerStyle={{
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Text>Create Booking</Text>
-      </View>
+        <PlaceDetails _id={_id} />
+      </ScrollView>
       {/* // booking field inputs */}
-      <View></View>
+      <ScrollView>
+        <BookingCard />
+      </ScrollView>
       {/* // "book" button here */}
-      <View></View>
+      <View>
+        {/* <Button
+          title="Book"
+          onPress={() => navigation.navigate("Rating", { _id: place._id })}
+          // how can i add to this code, that i want the user to rate the most recent shop they booked at?
+          // and when done, user is navigated back to this booking page (which will store the new booking request info user already typed)
+          // and now he is able to hit the "book" button?
+          //
+          // onPress={() => Alert.alert('You are requesting a booking for ${time}')}
+        /> */}
+      </View>
       {/* frame inputs end here */}
     </View>
   );
