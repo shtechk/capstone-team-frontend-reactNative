@@ -12,7 +12,7 @@ const searchPlaces = async (searchTerm) => {
   try {
     const { data } = await instance.get(
       `/apis/place/search?search=${searchTerm}`
-    ); //`/apis/place${searchTerm}` or `/apis/place?search=${searchTerm}`?? ask aziz
+    );
     return data;
   } catch (error) {
     console.error(error);

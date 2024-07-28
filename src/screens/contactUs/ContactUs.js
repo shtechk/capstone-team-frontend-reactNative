@@ -13,7 +13,7 @@ const ContactUs = ({ navigation }) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#023047", // Dark blue background for the main view
+        backgroundColor: "white", // Dark blue background for the main view #023047
       }}
     >
       {/* Overall header view at the top */}
@@ -26,12 +26,12 @@ const ContactUs = ({ navigation }) => {
         }}
       >
         {/* Upper Header view that is below clock and battery icons on the screen */}
-        <View style={{ flex: 50, backgroundColor: "#ffb703" }}></View>
+        <View style={{ flex: 50, backgroundColor: "#219ebc" }}></View>
         {/* lower header*/}
         <View
           style={{
             flex: 70,
-            backgroundColor: "#ffb703", // yellow background for the lower header
+            backgroundColor: "#219ebc", // cyan background for the lower header
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
@@ -92,8 +92,8 @@ const ContactUs = ({ navigation }) => {
             gap: 10,
           }}
         >
-          <Ionicons name="call-outline" size={30} color="white" />
-          <Text style={{ color: "white", fontSize: "20" }}>+965-99999999</Text>
+          <Ionicons name="call-outline" size={30} color="black" />
+          <Text style={{ color: "black", fontSize: "20" }}>+965-99999999</Text>
         </View>
         {/*E-mail */}
         <View
@@ -105,8 +105,8 @@ const ContactUs = ({ navigation }) => {
             gap: 10,
           }}
         >
-          <Ionicons name="mail-open-outline" size={30} color="white" />
-          <Text style={{ color: "white", fontSize: "20" }}>email@mail.com</Text>
+          <Ionicons name="mail-open-outline" size={30} color="black" />
+          <Text style={{ color: "black", fontSize: "20" }}>email@mail.com</Text>
         </View>
         {/*twiter */}
         <View
@@ -118,8 +118,8 @@ const ContactUs = ({ navigation }) => {
             gap: 10,
           }}
         >
-          <Ionicons name="logo-twitter" size={30} color="white" />
-          <Text style={{ color: "white", fontSize: "20" }}>@ContactUs</Text>
+          <Ionicons name="logo-twitter" size={30} color="black" />
+          <Text style={{ color: "black", fontSize: "20" }}>@ContactUs</Text>
         </View>
       </View>
     </View>

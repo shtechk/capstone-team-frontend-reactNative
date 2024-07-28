@@ -7,6 +7,7 @@ import CategoryList from "../../components/CategoryList";
 import PlacesList from "../../components/PlacesList";
 import { useQuery } from "@tanstack/react-query";
 import { searchPlaces } from "../../apis/places";
+import Header from "../../components/Header";
 
 const HomeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -56,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
         <View
           style={{
             flex: 70,
-            backgroundColor: "#219ebc", // yellow background for the lower header
+            backgroundColor: "#219ebc", // cyan background for the lower header
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
@@ -106,6 +107,7 @@ const HomeScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+      {/*<Header navigation={navigation} title={"Home"}/>*/}
       {/* Search Bar View */}
       <View
         style={{

@@ -22,6 +22,7 @@ const CategoryList = () => {
       />
     );
   });
+
   return (
     //insted of <view> there is <scrollView> to teach the category list here to be scroll,
     <ScrollView
