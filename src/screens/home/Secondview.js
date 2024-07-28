@@ -30,13 +30,10 @@ const Secondview = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() =>
-          
-          {
-            
-            removeToken()
-            console.log("Token removed")
-          }}
+        onPress={() => {
+          removeToken();
+          // console.log("Token removed")
+        }}
       >
         <Text style={styles.buttonText}>Logout</Text>
       </TouchableOpacity>

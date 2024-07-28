@@ -12,6 +12,9 @@ const HomeNavigation = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="createBooking" component={CreateBooking} />
+      <Stack.Screen name="Chat" component={SingleChat} />
+      <Stack.Screen name="Location" component={FindLocation} />
+      {/* <Stack.Screen name="Rating" component={PlaceReview} /> */}
       <Stack.Screen name="singleChat" component={SingleChat} />
       <Stack.Screen name="findLocation" component={FindLocation} />
       {/* <Stack.Screen name="placeReview" component={PlaceRating} /> */}

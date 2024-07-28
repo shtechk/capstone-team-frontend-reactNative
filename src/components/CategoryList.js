@@ -10,7 +10,7 @@ const CategoryList = () => {
     queryKey: ["categories"],
     queryFn: () => getAllCategories(),
   });
-  console.log(data);
+
   //
   const dataList = data?.map((category, index) => {
     return (
