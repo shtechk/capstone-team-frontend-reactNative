@@ -1,4 +1,4 @@
-import { FlatList, Text, TextInput, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 //import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
@@ -7,6 +7,7 @@ import CategoryList from "../../components/CategoryList";
 import PlacesList from "../../components/PlacesList";
 import { useQuery } from "@tanstack/react-query";
 import { searchPlaces } from "../../apis/places";
+import Header from "../../components/Header";
 
 const HomeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
     queryKey: ["searchPlaces", searchTerm],
     queryFn: () => searchPlaces(searchTerm),
   });
-
+  // console.log({ HELORKJKSDJFKSJDKJSK: places });
   // Call refetch to execute the query when the user submits the search term
   const handleSearch = () => {
     refetch();
@@ -56,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
         <View
           style={{
             flex: 70,
-            backgroundColor: "#219ebc", // yellow background for the lower header
+            backgroundColor: "#219ebc", // cyan background for the lower header
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
@@ -106,6 +107,7 @@ const HomeScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+      {/*<Header navigation={navigation} title={"Home"}/>*/}
       {/* Search Bar View */}
       <View
         style={{
@@ -156,8 +158,8 @@ const HomeScreen = ({ navigation }) => {
       {/* category list */}
       <View
         style={{
-          height: 110,
-          //backgroundColor: "red",
+          height: 130,
+          //backgroundColor: "green",
           width: 400,
           alignItems: "center",
         }}
@@ -168,7 +170,6 @@ const HomeScreen = ({ navigation }) => {
         style={{
           width: "100%",
           height: "100%",
-          //backgroundColor: "red"
         }}
       >
         {!isLoading && <PlacesList places={places} isSuccess={isSuccess} />}

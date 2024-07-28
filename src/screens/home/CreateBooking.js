@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import PlaceDetails from "../../components/PlaceDetails";
+import BookingCard from "../../components/BookingCard";
 
 const CreateBooking = () => {
   return (

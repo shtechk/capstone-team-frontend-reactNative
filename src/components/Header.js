@@ -1,21 +1,16 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 
-const ContactUs = ({ navigation }) => {
+const Header = ({ navigation, title }) => {
   // Function to handle notification icon press
   const onNotificationPress = () => {
     // Handle the press event, e.g., navigate to a notifications screen
     // navigation.navigate('NotificationsScreen');
   };
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "white", // Dark blue background for the main view #023047
-      }}
-    >
+    <View>
       {/* Overall header view at the top */}
       <View
         style={{
@@ -58,11 +53,12 @@ const ContactUs = ({ navigation }) => {
             <Text
               style={{
                 fontSize: 20,
+                fontFamily: "Cochin",
                 fontWeight: "bold",
                 color: "#023047", // Dark blue text for the title
               }}
             >
-              Contact Us
+              {title}
             </Text>
           </View>
           {/* Notification Icon */}
@@ -81,49 +77,10 @@ const ContactUs = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ flex: 1, justifyContent: "center", gap: 12 }}>
-        {/*phone-No */}
-        <View
-          style={{
-            //justifyContent: "center",
-            alignItems: "center",
-            paddingHorizontal: 20,
-            flexDirection: "row",
-            gap: 10,
-          }}
-        >
-          <Ionicons name="call-outline" size={30} color="black" />
-          <Text style={{ color: "black", fontSize: "20" }}>+965-99999999</Text>
-        </View>
-        {/*E-mail */}
-        <View
-          style={{
-            //justifyContent: "center",
-            alignItems: "center",
-            paddingHorizontal: 20,
-            flexDirection: "row",
-            gap: 10,
-          }}
-        >
-          <Ionicons name="mail-open-outline" size={30} color="black" />
-          <Text style={{ color: "black", fontSize: "20" }}>email@mail.com</Text>
-        </View>
-        {/*twiter */}
-        <View
-          style={{
-            //justifyContent: "center",
-            alignItems: "center",
-            paddingHorizontal: 20,
-            flexDirection: "row",
-            gap: 10,
-          }}
-        >
-          <Ionicons name="logo-twitter" size={30} color="black" />
-          <Text style={{ color: "black", fontSize: "20" }}>@ContactUs</Text>
-        </View>
-      </View>
     </View>
   );
 };
 
-export default ContactUs;
+export default Header;
+
+const styles = StyleSheet.create({});

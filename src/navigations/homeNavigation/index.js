@@ -1,7 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-
 import HomeScreen from "../../screens/home/HomeScreen";
 import CreateBooking from "../../screens/home/CreateBooking";
 import PlaceReview from "../../screens/home/PlaceReview";
@@ -12,7 +10,7 @@ const Stack = createStackNavigator();
 const HomeNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="home" component={HomeScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="createBooking" component={CreateBooking} />
       <Stack.Screen name="Chat" component={SingleChat} />
       <Stack.Screen name="Location" component={FindLocation} />

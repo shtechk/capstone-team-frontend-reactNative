@@ -11,7 +11,7 @@ const PlaceDetails = ({ _id }) => {
     const fetchPlace = async () => {
       try {
         const response = await axios.get(
-          `http://192.168.8.95:8000/apis/place/${_id}`
+          `http://192.168.8.95:8000/api/place/${_id}`
         );
         setPlace(response.data);
       } catch (error) {

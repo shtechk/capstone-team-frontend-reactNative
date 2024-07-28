@@ -1,9 +1,12 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
 import { View, Text, Button, TextInput, DatePickerIOS } from "react-native";
 
-const BookingCard = ({ route, navigation }) => {
+const BookingCard = () => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("");
+  const navigation = useNavigation();
+  const route = useRoute();
   const [persons, setPersons] = useState(1);
   const [instructions, setInstructions] = useState("");
   const [showDatePicker, setShowDatePicker] = useState(false);

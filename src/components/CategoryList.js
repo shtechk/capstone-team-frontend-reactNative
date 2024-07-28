@@ -18,22 +18,23 @@ const CategoryList = () => {
         name={category.name}
         index={index}
         key={index}
-        image={category.image}
+        link={category.image}
       />
     );
   });
+
   return (
     //insted of <view> there is <scrollView> to teach the category list here to be scroll,
     <ScrollView
       horizontal //by defult its vertical so i choose "Horizantal"
       pagingEnabled // to make categories list scroll throw pages
       contentContainerStyle={{
-        height: 120,
+        height: 140,
         flexDirection: "row",
-        gap: 15,
+        gap: 20,
         alignItems: "center",
         paddingHorizontal: 5,
-        //backgroundColor: "red",
+        //backgroundColor: "blue",
       }}
     >
       {dataList}
@@ -42,5 +43,3 @@ const CategoryList = () => {
 };
 
 export default CategoryList;
-
-const styles = StyleSheet.create({});
