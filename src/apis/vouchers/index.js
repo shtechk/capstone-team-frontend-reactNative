@@ -1,4 +1,4 @@
-import instance from "..";
+import instance from "../../api";
 
 const getAllVouchers = async () => {
   const { data } = instance.get("/vouchers/allVouchers");
@@ -10,4 +10,9 @@ const fetchVoucher = async (voucherId) => {
   return data;
 };
 
-export { getAllVouchers, fetchVoucher };
+const addVoucher = async () => {
+  const { data } = await instance.post("/vouchers/createVoucher");
+  return data;
+};
+
+export { getAllVouchers, fetchVoucher, addVoucher };

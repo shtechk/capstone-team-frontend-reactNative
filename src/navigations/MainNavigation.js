@@ -1,19 +1,60 @@
-import React from "react";
+import React, { useContext } from "react";
+import {
+  DrawerContentScrollView,
+  DrawerItem,
+  DrawerItemList,
+  createDrawerNavigator,
+} from "@react-navigation/drawer";
+import { Button, View, Text, Alert } from "react-native";
 import HomeNavigation from "./homeNavigation";
-import ContactUs from "../screens/contactUs/ContactUs";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import VoucherNavigation from "./voucherNavigation";
-import BookingsNavigation from "./bookingsNavigation";
+// import BookingsNavigation from "./BookingsNavigation";
 import ChatsNavigation from "./chatsNavigation";
+import ContactNavigation from "./contactNavigation";
+import UserContext from "../context/Usercontext";
+import { BookingsNavigation } from "./bookingsNavigation";
+import LogoutScreen from "../screens/home/LogoutScreen";
+import { removeToken } from "../api/storage";
+
 const Drawer = createDrawerNavigator();
+
 const MainNavigation = () => {
+  const [user, setUser] = useContext(UserContext);
   return (
-    <Drawer.Navigator screenOptions={{ headerShown: false }}>
+    <Drawer.Navigator
+      screenOptions={{ headerShown: false }}
+      drawerContent={(props) => {
+        return (
+          <DrawerContentScrollView {...props}>
+            <DrawerItemList {...props} />
+            <DrawerItem
+              label="Logout"
+              onPress={() => {
+                Alert.alert("Logout", "Are you sure you want to logout!", [
+                  {
+                    text: "Yes",
+                    onPress: () => {
+                      removeToken();
+                      setUser(false);
+                    },
+                    style: "destructive",
+                  },
+                  {
+                    text: "No",
+                    onPress: () => {},
+                    style: "default",
+                  },
+                ]);
+              }}
+            />
+          </DrawerContentScrollView>
+        );
+      }}
+    >
       <Drawer.Screen name="Home" component={HomeNavigation} />
-      <Drawer.Screen name="contact Us" component={ContactUs} />
-      <Drawer.Screen name="vouchers" component={VoucherNavigation} />
       <Drawer.Screen name="Bookings" component={BookingsNavigation} />
-      <Drawer.Screen name="Chats" component={ChatsNavigation} />
+      {/* <Drawer.Screen name="Bookings" component={BookingsNavigation} /> */}
+      {/* <Drawer.Screen name="Chats" component={ChatsNavigation} /> */}
+      <Drawer.Screen name="Contact" component={ContactNavigation} />
     </Drawer.Navigator>
   );
 };

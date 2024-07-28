@@ -1,4 +1,4 @@
-import { FlatList, Text, TextInput, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 //import { TextInput, TouchableOpacity } from "react-native-gesture-handler";

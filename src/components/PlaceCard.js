@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { BASE_URL } from "../apis";
+import { BASE_URL } from "../api";
 import CachedImage from "./CachedImage";
 import { withDecay } from "react-native-reanimated";
 
