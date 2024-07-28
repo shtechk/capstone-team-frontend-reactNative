@@ -39,7 +39,7 @@ const Register = () => {
   const navigation = useNavigation();
 
   const { mutate: registerUser } = useMutation({
-    mutationFn: (d) => register(d),
+    mutationFn: (data) => register(data),
     onSuccess: () => {
       navigation.navigate("VerifyEmail", { email: userInfo.email });
     },
@@ -56,10 +56,10 @@ const Register = () => {
     if (Platform.OS !== "web") {
       const { status } =
         await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== "granted") {
-        alert("Sorry, we need camera roll permissions to make this work!");
-        return;
-      }
+      // if (status !== "granted") {
+      //   alert("Sorry, we need camera roll permissions to make this work!");
+      //   return;
+      // }
     }
 
     try {

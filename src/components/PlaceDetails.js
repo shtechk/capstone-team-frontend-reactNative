@@ -1,7 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { getPlaceById } from "../apis/places";
+import { BASE_URL } from "../apis";
 
-const PlaceDetails = () => {
+const PlaceDetails = ({ _id }) => {
+  const navigation = useNavigation();
+  const { data: place } = useQuery({
+    queryKey: ["placeDetail", _id],
+    queryFn: () => {
+      return getPlaceById(_id);
+    },
+  });
+  // console.log(place);
+  if (!place) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <View
       style={{
@@ -13,21 +31,56 @@ const PlaceDetails = () => {
       }}
     >
       {/* frame begins here */}
+
       {/* image of place*/}
-      <View> </View>
+
+      <View>
+        <Image
+          source={{ uri: BASE_URL + "/" + place?.images }}
+          style={{ width: 100, height: 100 }}
+        />
+      </View>
+
       {/* //name of place */}
       <View>
-        <Text>Pick</Text>
+        <Text>{place.name}</Text>
       </View>
       {/* // written details of place */}
-      <View></View>
+      <View>
+        <Text>{place.mood}</Text>
+        <Text>{place.food}</Text>
+        <Text>{place.drinks}</Text>
+        <Text>{place.service}</Text>
+        <Text>{place.parking}</Text>
+        <Text>{place.timings}</Text>
+      </View>
+
       {/* //3 icons */}
-      <View></View>
+      <View style={styles.iconContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Rating", { _id })}
+        >
+          <Ionicons name="star" size={32} color="gold" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <Ionicons name="location" size={32} color="blue" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Chat", { _id })}>
+          <Ionicons name="chatbubble" size={32} color="green" />
+        </TouchableOpacity>
+      </View>
+
       {/* frame ends here */}
     </View>
   );
 };
 
-export default PlaceDetails;
+const styles = StyleSheet.create({
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 20,
+  },
+});
 
-const styles = StyleSheet.create({});
+export default PlaceDetails;

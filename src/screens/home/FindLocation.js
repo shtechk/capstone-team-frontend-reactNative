@@ -11,14 +11,14 @@ const FindLocation = () => {
         alignItems: "center",
       }}
     >
-      <MapView
+      {/* <MapView
         style={{
           width: "100%",
           height: "100%",
         }}
       >
         FindLocation
-      </MapView>
+      </MapView> */}
     </View>
   );
 };

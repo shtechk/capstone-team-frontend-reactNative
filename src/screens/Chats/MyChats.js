@@ -1,21 +1,35 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const MyChats = () => {
+  const [users, setUser] = useState([]);
+
+  const { data } = useQuery({
+    queryKey: ["Chats"],
+    queryFn: () => getAllChats(),
+  });
+
+  //
+  const dataList = data?.map((chat, index) => {
+    return (
+      <View key={index}>
+        <Text>{JSON.stringify(chat)}</Text>
+      </View>
+    );
+  });
+
   return (
     <View>
-      {/* frame input begins here */}
+      {/* frame inputs begin here */}
       {/* // header */}
       <View></View>
-      {/* // chats list */}
-      <View>
-        <Text>My Chats</Text>
-      </View>
-      {/* frame input ends here */}
+      {/* // Place chat bubbles here */}
+      <View></View>
+      {/* // typed message input heree */}
+      <View></View>
+      {/* frame inputs end here */}
     </View>
   );
 };
 
 export default MyChats;
-
-const styles = StyleSheet.create({});

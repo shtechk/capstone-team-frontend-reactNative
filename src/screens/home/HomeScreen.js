@@ -22,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
     queryKey: ["searchPlaces", searchTerm],
     queryFn: () => searchPlaces(searchTerm),
   });
-
+  // console.log({ HELORKJKSDJFKSJDKJSK: places });
   // Call refetch to execute the query when the user submits the search term
   const handleSearch = () => {
     refetch();
@@ -170,7 +170,6 @@ const HomeScreen = ({ navigation }) => {
         style={{
           width: "100%",
           height: "100%",
-          //backgroundColor: "red",
         }}
       >
         {!isLoading && <PlacesList places={places} isSuccess={isSuccess} />}

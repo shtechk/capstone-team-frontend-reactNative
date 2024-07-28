@@ -1,5 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import MyChats from "../../screens/Chats/MyChats";
+import SingleChat from "../../screens/home/SingleChat";
 
 const Stack = createStackNavigator();
 const ChatsNavigation = () => {

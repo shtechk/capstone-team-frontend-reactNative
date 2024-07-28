@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { verifyEmail } from "../../api/auth";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -28,7 +28,8 @@ const VerifyEmail = () => {
     isLoading,
     isError,
     error,
-  } = useMutation(verifyEmail, {
+  } = useMutation({
+    mutationFn: (data) => verifyEmail(data),
     onSuccess: () => {
       alert("Verification successful");
       navigation.navigate("Login");
@@ -67,7 +68,9 @@ const VerifyEmail = () => {
           {isError && <Text>{error.message}</Text>}
         </>
       ) : (
-        <Text style={styles.errorText}>No email provided. Please register again.</Text>
+        <Text style={styles.errorText}>
+          No email provided. Please register again.
+        </Text>
       )}
     </View>
   );
