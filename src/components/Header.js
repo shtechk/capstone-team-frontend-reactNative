@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-const Header = ({ navigation }) => {
+const Header = ({ navigation, title }) => {
   // Function to handle notification icon press
   const onNotificationPress = () => {
     // Handle the press event, e.g., navigate to a notifications screen
@@ -26,7 +26,7 @@ const Header = ({ navigation }) => {
         <View
           style={{
             flex: 70,
-            backgroundColor: "#219ebc", // yellow background for the lower header
+            backgroundColor: "#219ebc", // cyan background for the lower header
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
@@ -58,7 +58,7 @@ const Header = ({ navigation }) => {
                 color: "#023047", // Dark blue text for the title
               }}
             >
-              {/*name you wont to show in the header */}
+              {title}
             </Text>
           </View>
           {/* Notification Icon */}

@@ -11,8 +11,9 @@ const getPlaceById = async (id) => {
 const searchPlaces = async (searchTerm) => {
   try {
     const { data } = await instance.get(
-      `/place/search?search=${searchTerm}`
-    ); //`/apis/place${searchTerm}` or `/apis/place?search=${searchTerm}`?? ask aziz
+
+      `/apis/place/search?search=${searchTerm}`
+    );
     return data;
   } catch (error) {
     console.error(error);
