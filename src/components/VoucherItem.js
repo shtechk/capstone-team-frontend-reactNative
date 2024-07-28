@@ -27,6 +27,7 @@ const VoucherItem = ({ id, amount, status, userSender }) => {
       </View>
 
       {/* <Button onPress={()=>na} ></Button> in this button i want to navigate one voucher to view its details */}
+      {/* i want to add a QR code that returns a mesaage of your wallet have been topped up with the amount sent */}
     </SafeAreaView>
   );
 };

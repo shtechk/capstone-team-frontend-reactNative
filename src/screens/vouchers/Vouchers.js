@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllVouchers } from "../../apis/vouchers";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../../components/Header";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Vouchers = ({ navigation }) => {
   const navigations = useNavigation();
@@ -56,10 +57,10 @@ const Vouchers = ({ navigation }) => {
           }}
         >
           {/* how to change the color of the title??  */}
-          <Button
+          <TouchableOpacity
             title="Create New Vouchers"
             onPress={handleNavigation}
-          ></Button>
+          ></TouchableOpacity>
         </View>
       </View>
     </View>

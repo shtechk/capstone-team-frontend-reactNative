@@ -15,6 +15,7 @@ import { BookingsNavigation } from "./bookingsNavigation";
 import LogoutScreen from "../screens/home/LogoutScreen";
 import { removeToken } from "../api/storage";
 import VoucherNavigation from "./voucherNavigation";
+import PlaceRating from "../screens/home/PlaceRating";
 
 const Drawer = createDrawerNavigator();
 
@@ -54,10 +55,13 @@ const MainNavigation = () => {
       <Drawer.Screen name="Home" component={HomeNavigation} />
       <Drawer.Screen name="Bookings" component={BookingsNavigation} />
       <Drawer.Screen name="vouchers" component={VoucherNavigation} />
+      <Drawer.Screen name="placeReview" component={PlaceRating} />
       {/* <Drawer.Screen name="Bookings" component={BookingsNavigation} /> */}
       {/* <Drawer.Screen name="Chats" component={ChatsNavigation} /> */}
       <Drawer.Screen name="Contact" component={ContactNavigation} />
     </Drawer.Navigator>
+
+    //note that the place rating will be taken off this page!!!!!!!!!!!!!!!
   );
 };
 

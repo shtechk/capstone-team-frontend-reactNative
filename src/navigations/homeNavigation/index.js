@@ -14,7 +14,7 @@ const HomeNavigation = () => {
       <Stack.Screen name="createBooking" component={CreateBooking} />
       <Stack.Screen name="singleChat" component={SingleChat} />
       <Stack.Screen name="findLocation" component={FindLocation} />
-      <Stack.Screen name="placeReview" component={PlaceRating} />
+      {/* <Stack.Screen name="placeReview" component={PlaceRating} /> */}
     </Stack.Navigator>
   );
 };
