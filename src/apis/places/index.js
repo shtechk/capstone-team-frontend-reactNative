@@ -4,6 +4,7 @@ const getAllPlaces = async () => {
   const { data } = await instance.get("/api/place");
   return data;
 };
+
 const getPlaceById = async (id) => {
   console.log("CALLING");
   const { data } = await instance.get(`/api/place/${id}`);
