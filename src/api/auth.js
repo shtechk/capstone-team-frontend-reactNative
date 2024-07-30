@@ -51,4 +51,10 @@ const verifyEmail = async ({ email, verification_code }) => {
   return data;
 };
 
-export { register, login, verifyEmail };
+// get All Users(for send notifications purpose)
+const getAllUsers = async () => {
+  const { data } = await instance.get("/api/users");
+  return data;
+};
+
+export { register, login, verifyEmail, getAllUsers };
