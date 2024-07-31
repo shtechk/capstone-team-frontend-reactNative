@@ -16,15 +16,17 @@ const Vouchers = ({ navigation }) => {
     queryKey: ["voucherss"],
     queryFn: () => getAllVouchers(),
   });
-  console.log(AllVouchers);
+  console.log({ AllVouchers });
   const vouchersList = AllVouchers?.map((voucher) => {
-    <VoucherItem
-      key={voucher._id}
-      amount={voucher.amount}
-      status={voucher.status}
-      userSender={voucher?.user.first_name}
-      id={voucher._id}
-    />;
+    return (
+      <VoucherItem
+        key={voucher._id}
+        amount={voucher.amount}
+        message={voucher.message}
+        userSender={voucher?.user?.phone_number}
+        id={voucher._id}
+      />
+    );
   });
 
   return (
@@ -34,11 +36,9 @@ const Vouchers = ({ navigation }) => {
         width: "100%",
       }}
     >
-      <Header navigation={navigation} title={"My voucher"} />
+      <Header navigation={navigation} title={"My Vouchers"} />
 
-      <View style={{ flex: "50", backgroundColor: "orange", width: "100%" }}>
-        {vouchersList}
-      </View>
+      <View style={{ flex: "50", width: "100%" }}>{vouchersList}</View>
       <View
         style={{
           flex: "10",
@@ -58,9 +58,15 @@ const Vouchers = ({ navigation }) => {
         >
           {/* how to change the color of the title??  */}
           <TouchableOpacity
-            title="Create New Vouchers"
             onPress={handleNavigation}
-          ></TouchableOpacity>
+            style={{ justifyContent: "center", alignItems: "center" }}
+          >
+            <Text
+              style={{ fontFamily: "cochin", color: "white", fontSize: "20" }}
+            >
+              Gift a Voucher
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

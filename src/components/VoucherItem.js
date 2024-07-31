@@ -2,12 +2,12 @@ import { Button, SafeAreaView, Text, View } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const VoucherItem = ({ id, amount, status, userSender }) => {
+const VoucherItem = ({ id, amount, message, userSender }) => {
   //   const navigate = useNavigation();
   return (
     <SafeAreaView
       style={{
-        flex: "10",
+        flex: 1,
         backgroundColor: "red",
         maxWidth: "100%",
         maxHeight: "30%",
@@ -16,13 +16,13 @@ const VoucherItem = ({ id, amount, status, userSender }) => {
         borderColor: "white",
       }}
     >
-      <View>
-        <Text> {amount} </Text>
+      <View style={{ flex: 1, backgroundColor: "blue" }}>
+        <Text style={{ color: "white" }}> {amount} </Text>
       </View>
-      <View>
-        <Text> {status} </Text>
+      <View style={{ flex: 1, backgroundColor: "green" }}>
+        <Text> {message} </Text>
       </View>
-      <View>
+      <View style={{ flex: 1 }}>
         <Text>{userSender}</Text>
       </View>
 

@@ -16,6 +16,7 @@ import LogoutScreen from "../screens/home/LogoutScreen";
 import { removeToken } from "../api/storage";
 import VoucherNavigation from "./voucherNavigation";
 import PlaceRating from "../screens/home/PlaceRating";
+import CreateRating from "../screens/home/CreateRating";
 
 const Drawer = createDrawerNavigator();
 
@@ -56,6 +57,8 @@ const MainNavigation = () => {
       <Drawer.Screen name="Bookings" component={BookingsNavigation} />
       <Drawer.Screen name="vouchers" component={VoucherNavigation} />
       <Drawer.Screen name="placeReview" component={PlaceRating} />
+      <Drawer.Screen name="createRating" component={CreateRating} />
+
       {/* <Drawer.Screen name="Bookings" component={BookingsNavigation} /> */}
       {/* <Drawer.Screen name="Chats" component={ChatsNavigation} /> */}
       <Drawer.Screen name="Contact" component={ContactNavigation} />
