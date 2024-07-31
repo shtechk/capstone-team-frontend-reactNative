@@ -39,7 +39,10 @@ const Register = () => {
   const navigation = useNavigation();
 
   const { mutate: registerUser } = useMutation({
-    mutationFn: (s) => register(s),
+    mutationKey: [""],
+    mutationFn: (prop) => {
+      register(prop);
+    },
     onSuccess: () => {
       navigation.navigate("VerifyEmail", { email: userInfo.email });
     },

@@ -14,7 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import UserContext from "../../context/Usercontext";
 
 const Login = () => {
-  const [user,setUser]=useContext(UserContext)
+  const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -32,18 +32,17 @@ const Login = () => {
   //   },
   // });
 
-  const {mutate} = useMutation({
-    mutationFn: () => login({username, password}),
+  const { mutate } = useMutation({
+    mutationFn: () => login({ username, password }),
     mutationKey: ["login"],
     onSuccess: () => {
-
-      setUser(true)
+      setUser(true);
       // navigation.navigate("HomeScreen")
-    }
-    })
+    },
+  });
 
   const handleLogin = () => {
-   mutate();
+    mutate();
   };
 
   return (
@@ -75,7 +74,7 @@ const Login = () => {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText}>translate("Login")</Text>
       </TouchableOpacity>
     </View>
   );
