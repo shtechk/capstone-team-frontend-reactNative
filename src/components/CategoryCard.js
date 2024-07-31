@@ -1,16 +1,27 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { BASE_URL } from "../apis";
+import { BASE_URL } from "../api";
 
 const CategoryCard = ({ link, index, name }) => {
+  const handlePress = () => {
+    // We can handle filter by category
+  };
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => handlePress()}
       style={{
         flex: 1,
         minWidth: 140,
         minHeight: 140,
-        // backgroundColor: "#8ecae6",
+        //backgroundColor: "#8ecae6",
         paddingHorizontal: 5,
         paddingVertical: 10,
         borderRadius: 100,
@@ -40,7 +51,7 @@ const CategoryCard = ({ link, index, name }) => {
       >
         <Text>{name}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

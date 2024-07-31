@@ -1,10 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { removeToken } from "../../api/storage";
+import { useFocusEffect } from "@react-navigation/native";
 
 const LogoutScreen = () => {
   removeToken();
-  // console.log("alis");
+
   return null;
 };
 

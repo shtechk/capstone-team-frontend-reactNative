@@ -30,7 +30,7 @@ const PlaceDetails = ({ _id }) => {
         borderRadius: 5,
       }}
     >
-      {/* frame begins here */}
+      {/* */}
 
       {/* image of place*/}
 
@@ -41,11 +41,11 @@ const PlaceDetails = ({ _id }) => {
         />
       </View>
 
-      {/* //name of place */}
+      {/* title */}
       <View>
         <Text>{place.name}</Text>
       </View>
-      {/* // written details of place */}
+      {/* details */}
       <View>
         <Text>{place.mood}</Text>
         <Text>{place.food}</Text>
@@ -55,7 +55,7 @@ const PlaceDetails = ({ _id }) => {
         <Text>{place.timings}</Text>
       </View>
 
-      {/* //3 icons */}
+      {/* icons */}
       <View style={styles.iconContainer}>
         <TouchableOpacity
           onPress={() => navigation.navigate("Rating", { _id })}
@@ -70,7 +70,7 @@ const PlaceDetails = ({ _id }) => {
         </TouchableOpacity>
       </View>
 
-      {/* frame ends here */}
+      {/* end */}
     </View>
   );
 };

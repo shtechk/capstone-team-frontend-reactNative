@@ -61,7 +61,7 @@ const PlacesList = ({ places, isSuccess }) => {
               mood={place.mood}
               //food={place.food}
               _id={place._id}
-              ratings={place.ratings}
+              //ratings={place.ratings}
               userLocation={userLocation}
               place={place}
             />

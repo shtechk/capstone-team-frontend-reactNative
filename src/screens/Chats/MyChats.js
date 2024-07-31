@@ -27,7 +27,7 @@ const MyChats = () => {
       <View></View>
       {/* // typed message input heree */}
       <View></View>
-      {/* frame inputs end here */}
+      <Button title="Confirm" onPress={() => {}} />
     </View>
   );
 };
