@@ -4,9 +4,8 @@ import { storeToken } from "./storage";
 
 // Login function
 const login = async (userInfo) => {
-  const { data } = await instance.post("/users/login", userInfo);
+  const { data } = await instance.post("/api/users/login", userInfo);
   if (data.token) {
-    console.log(data.token);
     await storeToken(data.token);
   }
   return data;
@@ -30,7 +29,7 @@ const register = async (userInfo) => {
       }
     }
 
-    const { data } = await instance.post("/users/register", formData, {
+    const { data } = await instance.post("/api/users/register", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -52,11 +51,17 @@ const register = async (userInfo) => {
 
 // Verify Email function
 const verifyEmail = async ({ email, verification_code }) => {
-  const { data } = await instance.post("/users/verify-email", {
+  const { data } = await instance.post("/api/users/verify-email", {
     email,
     verification_code,
   });
   return data;
 };
 
-export { register, login, verifyEmail };
+// get All Users(for send notifications purpose)
+const getAllUsers = async () => {
+  const { data } = await instance.get("/api/users");
+  return data;
+};
+
+export { register, login, verifyEmail, getAllUsers };

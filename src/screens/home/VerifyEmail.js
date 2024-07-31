@@ -28,7 +28,8 @@ const VerifyEmail = () => {
     isLoading,
     isError,
     error,
-  } = useMutation(verifyEmail, {
+  } = useMutation({
+    mutationFn: (data) => verifyEmail(data),
     onSuccess: () => {
       alert("Verification successful");
       navigation.navigate("Login");

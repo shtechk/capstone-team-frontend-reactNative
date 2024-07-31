@@ -1,5 +1,5 @@
 import { Text, TextInput, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 //import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { TouchableOpacity } from "react-native";
@@ -7,9 +7,13 @@ import CategoryList from "../../components/CategoryList";
 import PlacesList from "../../components/PlacesList";
 import { useQuery } from "@tanstack/react-query";
 import { searchPlaces } from "../../apis/places";
+import Header from "../../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  navigation = useNavigation();
 
   const {
     data: places,
@@ -22,6 +26,7 @@ const HomeScreen = ({ navigation }) => {
     queryFn: () => searchPlaces(searchTerm),
   });
 
+  // console.log({ HELORKJKSDJFKSJDKJSK: places });
   // Call refetch to execute the query when the user submits the search term
   const handleSearch = () => {
     refetch();
@@ -29,6 +34,7 @@ const HomeScreen = ({ navigation }) => {
 
   // Function to handle notification icon press
   const onNotificationPress = () => {
+    navigation.navigate("notification");
     // Handle the press event, e.g., navigate to a notifications screen
     // navigation.navigate('NotificationsScreen');
   };
@@ -42,69 +48,8 @@ const HomeScreen = ({ navigation }) => {
       }}
     >
       {/* Overall header view at the top */}
-      <View
-        style={{
-          width: "100%",
-          height: 120,
-          backgroundColor: "#fb8500", // Orange background for the header
-          overflow: "hidden",
-        }}
-      >
-        {/* Upper Header view that is below clock and battery icons on the screen */}
-        <View style={{ flex: 50, backgroundColor: "#219ebc" }}></View>
-        {/* lower header*/}
-        <View
-          style={{
-            flex: 70,
-            backgroundColor: "#219ebc", // yellow background for the lower header
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: 10,
-          }}
-        >
-          {/* Drawer Icon */}
-          <TouchableOpacity
-            style={{
-              width: 45,
-              height: 45,
-              //backgroundColor: "#219ebc", // orange background for the drawer button
-              borderRadius: 50,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            onPress={() => navigation.openDrawer()}
-          >
-            <Ionicons name="menu" size={24} color="black" />
-          </TouchableOpacity>
-
-          {/* Title "Home" */}
-          <View style={{ flexDirection: "row" }}>
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "#023047", // Dark blue text for the title
-              }}
-            >
-              Home
-            </Text>
-          </View>
-          {/* Notification Icon */}
-          <TouchableOpacity
-            style={{
-              width: 45,
-              height: 45,
-              // backgroundColor: "#fb8500", // orange background for the notification button
-              borderRadius: 50,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            onPress={onNotificationPress}
-          >
-            <Ionicons name="notifications" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
+      <View style={{ width: "100%" }}>
+        <Header navigation={navigation} title={"Home"} />
       </View>
       {/* Search Bar View */}
       <View
@@ -156,9 +101,9 @@ const HomeScreen = ({ navigation }) => {
       {/* category list */}
       <View
         style={{
-          height: 130,
+          // height: 130,
           //backgroundColor: "green",
-          width: 400,
+          width: "100%",
           alignItems: "center",
         }}
       >
@@ -168,7 +113,6 @@ const HomeScreen = ({ navigation }) => {
         style={{
           width: "100%",
           height: "100%",
-          //backgroundColor: "red",
         }}
       >
         {!isLoading && <PlacesList places={places} isSuccess={isSuccess} />}

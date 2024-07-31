@@ -4,6 +4,8 @@ import { removeToken } from "../../api/storage";
 import { useFocusEffect } from "@react-navigation/native";
 
 const LogoutScreen = () => {
+  removeToken();
+
   return null;
 };
 

@@ -1,15 +1,14 @@
-// src/screens/manageBooking/UpcomingBookings.js
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const UpcomingBookings = () => {
+const ApplePay = () => {
   return (
     <View>
-      <Text>UpcomingBookings</Text>
+      <Text>ApplePay</Text>
     </View>
   );
 };
 
-export default UpcomingBookings;
+export default ApplePay;
 
 const styles = StyleSheet.create({});

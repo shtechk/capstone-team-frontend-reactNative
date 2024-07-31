@@ -8,8 +8,9 @@ import { getAllPlaces } from "../apis/places";
 
 const PlacesList = ({ places, isSuccess }) => {
   const [sortedPlaces, setSortedPlaces] = useState([]);
-  console.log(places);
-  console.log(places);
+  const [userLocation, setUserLocation] = useState([]);
+  // console.log("HELLLO");
+  // console.log(places);
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -19,7 +20,7 @@ const PlacesList = ({ places, isSuccess }) => {
       }
 
       let userLocation = await Location.getCurrentPositionAsync({});
-
+      setUserLocation(userLocation);
       if (isSuccess && places) {
         const sorted = [...places].sort((a, b) => {
           const distanceA = getDistance(
@@ -44,33 +45,33 @@ const PlacesList = ({ places, isSuccess }) => {
   }, [places, isSuccess]);
   // console.log({ sortedBusinesses });
   return (
-    <View style={{ flex: 1, paddingVertical: 5 }}>
-      <ScrollView
-        contentContainerStyle={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: 7,
-        }}
-      >
-        {places?.map(
-          (place) => (
-            console.log(place), // Debug: Log the current place object
-            (
-              <PlaceCard
-                link={place.images}
-                key={place._id}
-                name={place.name}
-                mood={place.mood}
-                //food={place.food}
-                _id={place._id}
-                ratings={place.ratings}
-              />
-            )
-          )
-        )}
-      </ScrollView>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        alignItems: "center",
+        gap: 7,
+      }}
+    >
+      {places?.map((place) => {
+        return (
+          <>
+            <PlaceCard
+              link={place.images}
+              key={place._id}
+              name={place.name}
+              mood={place.mood}
+              //food={place.food}
+              _id={place._id}
+              //ratings={place.ratings}
+              userLocation={userLocation}
+              place={place}
+            />
+          </>
+        );
+      })}
+      <View style={{ height: 100 }}></View>
+      <View style={{ height: 100 }}></View>
+      <View style={{ height: 100 }}></View>
+    </ScrollView>
   );
 };
 

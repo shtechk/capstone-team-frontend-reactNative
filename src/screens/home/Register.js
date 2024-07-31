@@ -1,5 +1,5 @@
 // src/screens/Register.js
-import React, { useState } from "react";
+
 import {
   View,
   Text,
@@ -11,13 +11,14 @@ import {
   Platform,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-
+import { useMutation } from "@tanstack/react-query";
 import { register } from "../../api/auth";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
-import { useMutation } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 
 const Register = () => {
+  const [notificationToken, setNotificationToken] = useState("");
   const [userInfo, setUserInfo] = useState({
     email: "",
     first_name: "",
@@ -34,15 +35,20 @@ const Register = () => {
     business_description: "",
     business_mode: "",
     business_image: null,
+    notification_token: notificationToken,
   });
-
+  //to take permision from the user to send Notification
+  useEffect(() => {
+    const getNotificationToken = async () => {
+      const notificationToken = await registerForPushNotificationsAsync();
+      setNotificationToken(notificationToken);
+    };
+    getNotificationToken();
+  }, []);
   const navigation = useNavigation();
 
   const { mutate: registerUser } = useMutation({
-    mutationKey: [""],
-    mutationFn: (prop) => {
-      register(prop);
-    },
+    mutationFn: (data) => register(data),
     onSuccess: () => {
       navigation.navigate("VerifyEmail", { email: userInfo.email });
     },
@@ -59,10 +65,10 @@ const Register = () => {
     if (Platform.OS !== "web") {
       const { status } =
         await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== "granted") {
-        alert("Sorry, we need camera roll permissions to make this work!");
-        return;
-      }
+      // if (status !== "granted") {
+      //   alert("Sorry, we need camera roll permissions to make this work!");
+      //   return;
+      // }
     }
 
     try {
