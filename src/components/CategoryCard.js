@@ -1,9 +1,10 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { BASE_URL } from "../apis";
+import { BASE_URL } from "../api";
 
 const CategoryCard = ({ link, index, name }) => {
+  console.log("first");
   return (
     <View
       style={{

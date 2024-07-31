@@ -2,8 +2,9 @@
 import axios from "axios";
 import { getToken } from "./storage";
 
+const BASE_URL = "http://192.168.0.199:3000";
 const instance = axios.create({
-  baseURL: "http://172.20.10.2:3000/api", // Replace with your actual backend IP address
+  baseURL: "http://192.168.0.199:3000/api", // Replace with your actual backend IP address
 });
 
 instance.interceptors.request.use(async (config) => {
@@ -13,5 +14,5 @@ instance.interceptors.request.use(async (config) => {
   }
   return config;
 });
-
+export { BASE_URL };
 export default instance;

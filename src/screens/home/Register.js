@@ -11,10 +11,11 @@ import {
   Platform,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { useMutation } from "react-query";
+
 import { register } from "../../api/auth";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
+import { useMutation } from "@tanstack/react-query";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -37,7 +38,8 @@ const Register = () => {
 
   const navigation = useNavigation();
 
-  const { mutate: registerUser } = useMutation(register, {
+  const { mutate: registerUser } = useMutation({
+    mutationFn: (s) => register(s),
     onSuccess: () => {
       navigation.navigate("VerifyEmail", { email: userInfo.email });
     },
@@ -208,7 +210,8 @@ const Register = () => {
             placeholder="Business Date"
             value={userInfo.business_date}
             onChangeText={(text) =>
-              setUserInfo({ ...userInfo, business_date: text })}
+              setUserInfo({ ...userInfo, business_date: text })
+            }
           />
           <Text style={styles.label}>Business Location</Text>
           <TextInput
@@ -216,7 +219,8 @@ const Register = () => {
             placeholder="Business Location"
             value={userInfo.business_location}
             onChangeText={(text) =>
-              setUserInfo({ ...userInfo, business_location: text })}
+              setUserInfo({ ...userInfo, business_location: text })
+            }
           />
           <Text style={styles.label}>Business Description</Text>
           <TextInput
@@ -224,7 +228,8 @@ const Register = () => {
             placeholder="Business Description"
             value={userInfo.business_description}
             onChangeText={(text) =>
-              setUserInfo({ ...userInfo, business_description: text })}
+              setUserInfo({ ...userInfo, business_description: text })
+            }
           />
           <Text style={styles.label}>Business Mode</Text>
           <TextInput
@@ -232,7 +237,8 @@ const Register = () => {
             placeholder="Business Mode"
             value={userInfo.business_mode}
             onChangeText={(text) =>
-              setUserInfo({ ...userInfo, business_mode: text })}
+              setUserInfo({ ...userInfo, business_mode: text })
+            }
           />
         </>
       )}
