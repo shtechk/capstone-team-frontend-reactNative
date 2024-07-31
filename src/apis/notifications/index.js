@@ -1,15 +1,6 @@
 import instance from "..";
-<<<<<<< HEAD
-// const getALLNotifications = async () => {
-//   const { data } = await instance.get("/api/notification");
-//   return data;
-// };
-
-const getMyNotifications = async () => {
-=======
 
 const getALLNotifications = async () => {
->>>>>>> origin/shahad-ali
   const { data } = await instance.get("/api/notification");
   return data;
 };
@@ -42,7 +33,7 @@ const markNotificationAsRead = async (notificationId) => {
 };
 
 export {
-  getMyNotifications,
+  getALLNotifications,
   sendOneNotification,
   sendNotificationForAll,
   markNotificationAsRead,
