@@ -1,63 +1,112 @@
+// import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+// import React from "react";
+// import { useNavigation } from "@react-navigation/native";
+// import dayjs from "dayjs";
+// import { BASE_URL } from "../apis";
+
+// const BookedPlace = ({ booking, hideButton, _id }) => {
+//   const navigation = useNavigation();
+
+//   return (
+//     <View style={styles.container}>
+//       <View style={styles.imageContainer}>
+//         <Image
+//           source={{ uri: `${BASE_URL}/${booking?.place?.images}` }}
+//           style={styles.image}
+//         />
+//       </View>
+
+//       <View style={styles.detailsContainer}>
+//         <Text style={styles.title}>{booking?.place?.name}</Text>
+//         <Text style={styles.detail}>
+//           {dayjs(booking?.date).format("DD MMM YYYY")}
+//         </Text>
+//         <Text style={styles.detail}>{booking?.time}</Text>
+//         <Text style={styles.detail}>{booking?.persons}</Text>
+//       </View>
+
+//       {!hideButton && (
+//         <TouchableOpacity
+//           style={styles.button}
+//           onPress={() =>
+//             navigation.navigate("manageBookings", { _id: booking._id })
+//           }
+//         >
+//           <Text style={styles.buttonText}>Modify</Text>
+//         </TouchableOpacity>
+//       )}
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flexDirection: "row",
+//     padding: 10,
+//     backgroundColor: "lightgray",
+//     borderRadius: 20,
+//     marginVertical: 5,
+//     width: "90%",
+//     alignItems: "center",
+//   },
+//   imageContainer: {
+//     marginRight: 10,
+//   },
+//   image: {
+//     width: 50,
+//     height: 50,
+//     borderRadius: 25,
+//   },
+//   detailsContainer: {
+//     flex: 1,
+//   },
+//   title: {
+//     fontSize: 16,
+//     fontWeight: "bold",
+//   },
+//   detail: {
+//     fontSize: 14,
+//   },
+//   button: {
+//     backgroundColor: "#219ebc",
+//     paddingVertical: 5,
+//     paddingHorizontal: 10,
+//     borderRadius: 5,
+//   },
+//   buttonText: {
+//     color: "#ffffff",
+//     fontSize: 14,
+//   },
+// });
+
+// export default BookedPlace;
+
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
-import { useQuery } from "@tanstack/react-query";
-import { getPlaceById } from "../apis/places";
-import { getOneBooking } from "../apis/bookings";
-import { BASE_URL } from "../apis";
 import dayjs from "dayjs";
+import { BASE_URL } from "../apis";
 
 const BookedPlace = ({ booking, hideButton, _id }) => {
   const navigation = useNavigation();
-  // const { data: booking } = useQuery({
-  //   queryKey: ["bookedPlace", _id],
-  //   queryFn: () => getOneBooking(_id),
-  // });
 
-  // const { data: place } = useQuery({
-  //   queryKey: ["placeDetail", _id],
-  //   queryFn: () => getPlaceById(_id),
-  // });
-
-  // if (!booking) {
-  //   return <Text>There is no booking</Text>;
-  // }
-
-  // if (!place) {
-  //   return <Text>Place details can't be loaded</Text>;
-  // }
-  // console.log(booking.place);
-  // console.log(`${BASE_URL}//${booking.place?.images}`);
   return (
-    <View
-      style={{
-        flex: 1,
-        paddingVertical: 5,
-        paddingHorizontal: 5,
-        backgroundColor: "lightgray",
-        borderRadius: 5,
-      }}
-    >
-      {/* image of place */}
-      <View>
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
         <Image
           source={{ uri: `${BASE_URL}/${booking?.place?.images}` }}
-          style={{ width: 100, height: 100 }}
+          style={styles.image}
         />
       </View>
 
-      {/* title */}
-      <View>
-        <Text>{booking?.place?.name}</Text>
+      <View style={styles.detailsContainer}>
+        <Text style={styles.title}>{booking?.place?.name}</Text>
+        <Text style={styles.detail}>
+          {dayjs(booking?.date).format("DD MMM YYYY")}
+        </Text>
+        <Text style={styles.detail}>{booking?.time}</Text>
+        <Text style={styles.detail}>{booking?.persons}</Text>
       </View>
-      {/* details */}
-      <View>
-        <Text>{dayjs(booking?.date).format("DD MMM YYYY")}</Text>
-        <Text>{booking?.time}</Text>
-        <Text>{booking?.persons}</Text>
-      </View>
-
       {!hideButton && (
         <TouchableOpacity
           style={styles.button}
@@ -65,26 +114,55 @@ const BookedPlace = ({ booking, hideButton, _id }) => {
             navigation.navigate("manageBookings", { _id: booking._id })
           }
         >
-          <Text>Modify</Text>
+          <Text style={styles.buttonText}>Modify</Text>
         </TouchableOpacity>
       )}
-
-      {/* end */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  iconContainer: {
+  container: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 20,
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    marginVertical: 10,
+    width: "100%",
+    alignItems: "center",
+    elevation: 3,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  imageContainer: {
+    marginRight: 10,
+  },
+  image: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+  },
+  detailsContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  detail: {
+    fontSize: 14,
   },
   button: {
-    marginTop: 10,
-    padding: 10,
-    backgroundColor: "#2196F3",
+    backgroundColor: "#219ebc",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     borderRadius: 5,
+  },
+  buttonText: {
+    color: "#ffffff",
+    fontSize: 14,
   },
 });
 
