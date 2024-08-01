@@ -8,11 +8,10 @@ import {
 import { Button, View, Text, Alert } from "react-native";
 import HomeNavigation from "./homeNavigation";
 // import BookingsNavigation from "./BookingsNavigation";
-import ChatsNavigation from "./chatsNavigation";
 import ContactNavigation from "./contactNavigation";
 import UserContext from "../context/Usercontext";
 import { BookingsNavigation } from "./bookingsNavigation";
-import LogoutScreen from "../screens/home/LogoutScreen";
+
 import { removeToken } from "../api/storage";
 import VoucherNavigation from "./voucherNavigation";
 import PlaceRating from "../screens/home/PlaceRating";
