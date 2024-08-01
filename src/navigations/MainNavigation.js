@@ -55,8 +55,6 @@ const MainNavigation = () => {
       <Drawer.Screen name="Home" component={HomeNavigation} />
       <Drawer.Screen name="Bookings" component={BookingsNavigation} />
       <Drawer.Screen name="vouchers" component={VoucherNavigation} />
-      <Drawer.Screen name="placeReview" component={PlaceRating} />
-      <Drawer.Screen name="createRating" component={CreateRating} />
 
       {/* <Drawer.Screen name="Bookings" component={BookingsNavigation} /> */}
       {/* <Drawer.Screen name="Chats" component={ChatsNavigation} /> */}

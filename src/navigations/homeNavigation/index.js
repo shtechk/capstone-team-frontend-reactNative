@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../../screens/home/HomeScreen";
 import CreateBooking from "../../screens/home/CreateBooking";
 import PlaceRating from "../../screens/home/PlaceRating";
+import CreateRating from "../../screens/home/CreateRating";
 
 const Stack = createStackNavigator();
 const HomeNavigation = () => {
@@ -19,6 +20,7 @@ const HomeNavigation = () => {
       />
       {/* <Stack.Screen name="Rating" component={PlaceReview} /> */}
       <Stack.Screen name="placeReview" component={PlaceRating} />
+      <Stack.Screen name="createRating" component={CreateRating} />
     </Stack.Navigator>
   );
 };

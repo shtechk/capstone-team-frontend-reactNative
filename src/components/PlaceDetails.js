@@ -182,7 +182,7 @@ const PlaceDetails = ({ _id }) => {
       </View>
       <View style={styles.iconContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Rating", { _id })}
+          onPress={() => navigation.navigate("placeReview", { _id })}
         >
           <Ionicons name="star" size={32} color="gold" />
         </TouchableOpacity>

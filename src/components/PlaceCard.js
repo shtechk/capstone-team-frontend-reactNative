@@ -103,7 +103,7 @@ const PlaceCard = ({
           <Text>{mood}</Text>
           <Text>{food}</Text>
           <Text>{service}</Text>
-          <Text>{ratings}</Text>
+          <Text>Rating {ratings.length}</Text>
         </View>
         <View
           style={{

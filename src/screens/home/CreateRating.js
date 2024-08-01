@@ -4,15 +4,19 @@ import { useMutation } from "@tanstack/react-query";
 import { addRating } from "../../apis/rating";
 import { TextInput } from "react-native-gesture-handler";
 import Header from "../../components/Header";
+import { useRoute } from "@react-navigation/native";
 
 const CreateRating = ({ navigation }) => {
-  const placeId = "66a0f5c4fce937019db42bc0";
+  const router = useRoute();
+  const placeId = router.params._id || "66a0f5c4fce937019db42bc0";
   const [note, setNote] = useState("");
   const [mood, setMood] = useState("");
   const { mutate } = useMutation({
     mutationKey: ["addingRating"],
     mutationFn: () => addRating({ placeId, mood, note }),
-    onSuccess: () => console.log("zzzzz"),
+    onSuccess: () => {
+      navigation.goBack();
+    },
   });
   return (
     <View
@@ -122,7 +126,6 @@ const CreateRating = ({ navigation }) => {
         <View
           style={{
             flex: 3,
-            backgroundColor: "pink",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -138,7 +141,11 @@ const CreateRating = ({ navigation }) => {
               backgroundColor: "#219ebc",
             }}
           >
-            <Text style={{ fontFamily: "cochin", fontSize: "30" }}>Submit</Text>
+            <Text
+              style={{ fontFamily: "cochin", fontSize: "30", color: "white" }}
+            >
+              Submit
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
