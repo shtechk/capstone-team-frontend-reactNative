@@ -1,12 +1,30 @@
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { getMyNotifications } from "../apis/notifications";
+import { useQuery } from "@tanstack/react-query";
 
 const Header = ({ navigation, title }) => {
   // Function to handle notification icon press
   navigation = useNavigation();
+  const [hasUnreadNotifications, setHasUnreadNotifications] = useState(false);
+
+  const { data } = useQuery({
+    queryKey: ["notifications"],
+    queryFn: () => getMyNotifications(),
+  });
+  useEffect(() => {
+    const checkNotifications = async () => {
+      if (data) {
+        const unreadExists = data.some((notification) => !notification.isRead);
+        setHasUnreadNotifications(unreadExists);
+      }
+    };
+
+    checkNotifications();
+  }, [data]);
   const onNotificationPress = () => {
     navigation.navigate("notification");
     // Handle the press event, e.g., navigate to a notifications screen
@@ -81,6 +99,19 @@ const Header = ({ navigation, title }) => {
               size={24}
               color="white"
             />
+            {hasUnreadNotifications && (
+              <View
+                style={{
+                  height: 7,
+                  width: 7,
+                  backgroundColor: "red",
+                  borderRadius: 5,
+                  position: "absolute",
+                  top: 12,
+                  right: 12,
+                }}
+              />
+            )}
           </TouchableOpacity>
         </View>
       </View>
