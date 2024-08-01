@@ -20,25 +20,30 @@ const RatingItem = ({ username, createdAt, review }) => {
       >
         <View
           style={{
-            flex: "30%",
+            flex: 5,
             justifyContent: "center",
           }}
         >
           <Text
-            style={{ fontWeight: "bold", fontFamily: "cochin", fontSize: "17" }}
+            style={{
+              fontWeight: "bold",
+              fontFamily: "cochin",
+              fontSize: 18,
+              paddingLeft: 5,
+            }}
           >
             {username}
           </Text>
         </View>
         <View
           style={{
-            flex: "20%",
+            flex: 9,
             justifyContent: "center",
             alignItems: "flex-end",
           }}
         >
           <Text
-            style={{ fontWeight: "bold", fontFamily: "cochin", fontSize: "17" }}
+            style={{ fontWeight: "bold", fontFamily: "cochin", fontSize: 16 }}
           >
             {createdAt}
           </Text>
@@ -48,16 +53,16 @@ const RatingItem = ({ username, createdAt, review }) => {
         style={{
           flex: 7,
           borderRadius: "20%",
-          backgroundColor: "lightblue",
-          height: 60,
+          backgroundColor: "white",
+          height: 80,
         }}
       >
         <Text
           style={{
-            fontSize: "17",
+            fontSize: 17,
             fontFamily: "cochin",
-            paddingTop: 5,
-            paddingLeft: 3,
+            paddingTop: 9,
+            paddingLeft: 9,
           }}
         >
           {review}

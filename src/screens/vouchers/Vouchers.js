@@ -10,7 +10,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const Vouchers = ({ navigation }) => {
   const navigations = useNavigation();
   const handleNavigation = () => {
-    navigations.navigate("addNewVoucher");
+    navigation.navigate("addNewVoucher");
   };
   const { data: AllVouchers } = useQuery({
     queryKey: ["voucherss"],
@@ -38,7 +38,9 @@ const Vouchers = ({ navigation }) => {
     >
       <Header navigation={navigation} title={"My Vouchers"} />
 
-      <View style={{ flex: "50", width: "100%" }}>{vouchersList}</View>
+      <View style={{ flex: "50", width: "100%", gap: 7, padding: 10 }}>
+        {vouchersList}
+      </View>
       <View
         style={{
           flex: "10",

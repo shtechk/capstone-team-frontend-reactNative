@@ -55,7 +55,6 @@ const PlaceRating = ({ navigation }) => {
       <View
         style={{
           flex: 0.25,
-          backgroundColor: "lightgreen",
           flexDirection: "row",
         }}
       >
@@ -69,8 +68,9 @@ const PlaceRating = ({ navigation }) => {
 
       <ScrollView
         style={{
-          flex: "40%",
-          borderRadius: "20%",
+          flex: 4,
+          backgroundColor: "#219ebc",
+          padding: 8,
         }}
       >
         {ratingList}

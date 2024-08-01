@@ -3,7 +3,7 @@ import axios from "axios";
 import { getToken } from "./storage";
 
 const instance = axios.create({
-  baseURL: "http://192.168.0.122:3000", // Replace with your actual backend IP address
+  baseURL: "http://192.168.2.66:3000", // Replace with your actual backend IP address
 });
 
 instance.interceptors.request.use(async (config) => {
