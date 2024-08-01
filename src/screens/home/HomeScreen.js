@@ -9,11 +9,45 @@ import { useQuery } from "@tanstack/react-query";
 import { searchPlaces } from "../../apis/places";
 import Header from "../../components/Header";
 import { useNavigation } from "@react-navigation/native";
+import { Dropdown } from "react-native-element-dropdown";
+import MoodSelector from "../../components/MoodSelector";
+
+//For the FilterByMood
+const moodOptions = [
+  // { label: "All", value: "" },
+  // { label: "Quiet", value: "quiet" },
+  // { label: "Relaxed", value: "Relaxed" },
+  // { label: "Energetic", value: "energetic" },
+  // { label: "Cozy", value: "cozy" },
+  // { label: "Chic", value: "chic" },
+  // Add more moods as needed
+
+  { label: "All", value: "", icon: "md-globe" },
+  { label: "Quiet", value: "quiet", icon: "md-volume-off" },
+  { label: "Relaxed", value: "relaxed", icon: "md-spa" },
+  { label: "Energetic", value: "energetic", icon: "md-flash" },
+  { label: "Cozy", value: "cozy", icon: "md-cafe" },
+  { label: "Chic", value: "chic", icon: "md-shirt" },
+  // Add more moods with corresponding icons
+];
 
 const HomeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedMood, setSelectedMood] = useState(moodOptions[0].value); //For selected Mood
 
   navigation = useNavigation();
+
+  // Function to filter places by mood
+  const filterPlacesByMood = (places, selectedMood) => {
+    // If "All" is selected, return all places
+    if (selectedMood === "") {
+      return places;
+    }
+    // Otherwise, filter by the selected mood
+    return places.filter(
+      (place) => place.mood.toLowerCase() === selectedMood.toLowerCase()
+    );
+  };
 
   const {
     data: places,
@@ -92,14 +126,55 @@ const HomeScreen = ({ navigation }) => {
       {isLoading && <Text>Loading...</Text>}
       {isError && <Text>Error fetching data</Text>}
 
-      {/* Render the list of places */}
-      {/* <FlatList
-        data={places}
-        keyExtractor={(item) => item._id}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
-      /> */}
-      {/* category list */}
       <View
+        style={{
+          width: "100%",
+          alignItems: "center",
+          marginTop: 20,
+          //backgroundColor: "purple",
+          justifyContent: "center",
+          gap: 8,
+          flexDirection: "row",
+        }}
+      >
+        {/* Drop-down menu */}
+        {/* <Dropdown
+          data={moodOptions}
+          labelField="label"
+          valueField="value"
+          value={selectedMood}
+          onChange={(item) => {
+            setSelectedMood(item.value);
+            // Add any additional logic for when a mood is selected
+          }}
+          style={{
+            height: 40,
+            width: "70%",
+            //backgroundColor: "red",
+            borderRadius: 20,
+            paddingHorizontal: 10,
+            borderWidth: 1,
+          }}
+        /> */}
+
+        {/* Mood-selector componet to select the mood */}
+        <Text
+          style={{
+            fontSize: 20,
+            color: "purple",
+            fontFamily: "Times New Roman",
+          }}
+        >
+          Mood:
+        </Text>
+        <MoodSelector
+          selectedMood={selectedMood}
+          onSelectMood={setSelectedMood}
+        />
+      </View>
+
+      {/* category list */}
+      {/* <View
         style={{
           // height: 130,
           //backgroundColor: "green",
@@ -108,14 +183,43 @@ const HomeScreen = ({ navigation }) => {
         }}
       >
         <CategoryList />
-      </View>
+      </View> */}
+
+      {/* Place List */}
       <View
         style={{
           width: "100%",
           height: "100%",
+          //backgroundColor: "green",
+          gap: 4,
         }}
       >
-        {!isLoading && <PlacesList places={places} isSuccess={isSuccess} />}
+        <View
+          style={{
+            //backgroundColor: "red",
+            justifyContent: "flex-start",
+            width: "100%",
+            paddingLeft: 15,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 18,
+              textAlign: "left",
+              //fontWeight: "bold",
+              color: "black",
+            }}
+          >
+            Nearby Cafes:
+          </Text>
+        </View>
+        {/* {!isLoading && <PlacesList places={places} isSuccess={isSuccess} />} */}
+        {!isLoading && (
+          <PlacesList
+            places={filterPlacesByMood(places, selectedMood)}
+            isSuccess={isSuccess}
+          />
+        )}
       </View>
     </View>
   );

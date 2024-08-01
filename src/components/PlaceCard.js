@@ -114,8 +114,8 @@ const PlaceCard = ({
             paddingBottom: 4,
           }}
         >
-          <Ionicons name="location-outline" size={24} color="gray" />
-          <Text style={{ fontSize: 14, color: "gray" }}>
+          <Ionicons name="location" size={24} color="#15616d" />
+          <Text style={{ fontSize: 14, color: "#15616d" }}>
             {distance.toFixed(0)} Km
           </Text>
         </View>
