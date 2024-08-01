@@ -1,7 +1,7 @@
 import instance from "../../api";
 
 const getAllVouchers = async () => {
-  const { data } = await instance.get("/vouchers/allVouchers");
+  const { data } = await instance.get("/api/vouchers/allVouchers");
   console.log(data);
   return data;
 };
@@ -13,8 +13,13 @@ const fetchVoucher = async (voucherId) => {
   return data;
 };
 
-const addVoucher = async () => {
-  const { data } = await instance.post("/vouchers/createVoucher");
+const addVoucher = async (amount, phone_number, message, method) => {
+  const { data } = await instance.post("/api/vouchers/createVoucher", {
+    amount,
+    phone_number,
+    message,
+    method,
+  });
   return data;
 };
 

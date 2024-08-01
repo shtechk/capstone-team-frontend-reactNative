@@ -97,19 +97,12 @@ const PlaceCard = ({
             gap: 3,
           }}
         >
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "bold",
-              fontFamily: "monospace",
-              color: "gray",
-            }}
-          >
-            {name}
-          </Text>
-          <Text style={{ color: "gray" }}>{mood}</Text>
-          <Text style={{ color: "gray" }}>{food}</Text>
-          <Text style={{ color: "gray" }}>{service}</Text>
+          <Text style={{ fontSize: 20 }}>{name}</Text>
+          {/*Avenir Next,Helvetica Neue Try any of these font familyFont */}
+          <Text>{mood}</Text>
+          <Text>{food}</Text>
+          <Text>{service}</Text>
+          <Text>Rating {ratings.length}</Text>
         </View>
         <View
           style={{
