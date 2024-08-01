@@ -15,9 +15,10 @@ import { useMutation } from "@tanstack/react-query";
 import { register } from "../../api/auth";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Register = () => {
+  const [notificationToken, setNotificationToken] = useState("");
   const [userInfo, setUserInfo] = useState({
     email: "",
     first_name: "",
@@ -34,8 +35,16 @@ const Register = () => {
     business_description: "",
     business_mode: "",
     business_image: null,
+    notification_token: notificationToken,
   });
-
+  //to take permision from the user to send Notification
+  useEffect(() => {
+    const getNotificationToken = async () => {
+      const notificationToken = await registerForPushNotificationsAsync();
+      setNotificationToken(notificationToken);
+    };
+    getNotificationToken();
+  }, []);
   const navigation = useNavigation();
 
   const { mutate: registerUser } = useMutation({

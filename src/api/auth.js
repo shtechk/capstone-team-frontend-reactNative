@@ -6,7 +6,6 @@ import { storeToken } from "./storage";
 const login = async (userInfo) => {
   const { data } = await instance.post("/api/users/login", userInfo);
   if (data.token) {
-    // console.log(data.token);
     await storeToken(data.token);
   }
   return data;
@@ -18,7 +17,15 @@ const register = async (userInfo) => {
     const formData = new FormData();
     for (const key in userInfo) {
       if (userInfo[key] !== null) {
-        formData.append(key, userInfo[key]);
+        if (key == "profile_image" || key == "business_image") {
+          formData.append(key, {
+            uri: userInfo[key],
+            type: "png",
+            name: "ooo",
+          });
+        } else {
+          formData.append(key, userInfo[key]);
+        }
       }
     }
 
@@ -51,4 +58,10 @@ const verifyEmail = async ({ email, verification_code }) => {
   return data;
 };
 
-export { register, login, verifyEmail };
+// get All Users(for send notifications purpose)
+const getAllUsers = async () => {
+  const { data } = await instance.get("/api/users");
+  return data;
+};
+
+export { register, login, verifyEmail, getAllUsers };

@@ -2,10 +2,13 @@ import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = ({ navigation, title }) => {
   // Function to handle notification icon press
+  navigation = useNavigation();
   const onNotificationPress = () => {
+    navigation.navigate("notification");
     // Handle the press event, e.g., navigate to a notifications screen
     // navigation.navigate('NotificationsScreen');
   };
@@ -45,17 +48,17 @@ const Header = ({ navigation, title }) => {
             }}
             onPress={() => navigation.openDrawer()}
           >
-            <Ionicons name="menu" size={24} color="black" />
+            <Ionicons name="menu-outline" size={24} color="white" />
           </TouchableOpacity>
 
           {/* Title "Home" */}
           <View style={{ flexDirection: "row" }}>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 25,
                 fontFamily: "Cochin",
                 fontWeight: "bold",
-                color: "#023047", // Dark blue text for the title
+                color: "white", // Dark blue text for the title
               }}
             >
               {title}
@@ -73,7 +76,11 @@ const Header = ({ navigation, title }) => {
             }}
             onPress={onNotificationPress}
           >
-            <Ionicons name="notifications" size={24} color="black" />
+            <Ionicons
+              name="notifications-circle-sharp"
+              size={24}
+              color="white"
+            />
           </TouchableOpacity>
         </View>
       </View>

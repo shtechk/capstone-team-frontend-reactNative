@@ -45,57 +45,56 @@ const PlaceCard = ({
     <View
       style={{
         width: "95%",
-        height: 150,
+        height: 160,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        borderRadius: 22,
+        overflow: "hidden",
+        backgroundColor: "white",
+        gap: 5,
+        borderWidth: 1,
+        borderColor: "lightgray",
       }}
     >
       <TouchableOpacity
-        // This view is for the card and because I wont to make the card to be touchable I'll use <TouchableOpacity> insted of <View>
         onPress={() => handlePress()}
         style={{
           flex: 1,
-          borderRadius: 22,
-          borderColor: "darkgray",
-          overflow: "hidden",
-          borderWidth: 1,
-          padding: 5,
           flexDirection: "row",
-          // backgroundColor: "green",
+          //backgroundColor: "green",
         }}
       >
         <View // this view for the image
           style={{
             flex: 2,
-            //backgroundColor: "yellow",
-            borderRadius: 22,
-            overflow: "hidden",
-            //flexWrap: "wrap",
+            padding: 5, // Adjust padding to give space inside the image container
+            //backgroundColor: "blue",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Image
             source={{ uri: BASE_URL + "/" + link }}
             style={{
-              width: "100%",
-              height: "100%",
-              borderWidth: 1,
-              borderRadius: 22,
-              borderColor: "lightgray",
+              width: "90%",
+              height: "90%",
+              borderRadius: 15, // Adjust to match the card's border radius
             }}
             onError={(e) => console.log(e.nativeEvent.error)}
           />
         </View>
-        {/*<CachedImage uri={`${images}`} /> this componet to cached the image and save it locally but if there is a problme
-        while loading image this will appear in errors that there is failed to load the uri*/}
 
         <View
           // this view for the name and price
           style={{
-            flex: 2,
+            flex: 2, // Adjust flex to give more space for text
             paddingHorizontal: 10,
-            //flexDirection: "row",
             justifyContent: "center",
             alignItems: "flex-start",
-            gap: 9,
-            //backgroundColor: "pink",
+            gap: 3,
           }}
         >
           <Text style={{ fontSize: 20 }}>{name}</Text>
@@ -107,17 +106,18 @@ const PlaceCard = ({
         </View>
         <View
           style={{
+            flex: 1,
             justifyContent: "flex-end",
             alignItems: "center",
-            paddingHorizontal: 2,
+            paddingHorizontal: 1,
             //backgroundColor: "red",
+            paddingBottom: 4,
           }}
         >
           <Ionicons name="location-outline" size={24} color="gray" />
           <Text style={{ fontSize: 14, color: "gray" }}>
             {distance.toFixed(0)} Km
           </Text>
-          {/* Display the calculated distance */}
         </View>
       </TouchableOpacity>
     </View>
