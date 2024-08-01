@@ -185,14 +185,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "red",
     width: "100%",
   },
   button: {
     padding: 10,
     borderRadius: 40,
     marginHorizontal: 5,
-    backgroundColor: "yellow",
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonText: {
     color: "black",
@@ -204,6 +204,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     fontFamily: "cochin",
     fontWeight: "bold",
+    textAlign: "center",
     // alignItems: "center",
   },
 });
